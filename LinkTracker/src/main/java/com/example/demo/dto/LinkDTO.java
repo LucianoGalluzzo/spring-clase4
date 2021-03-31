@@ -9,7 +9,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LinkDTO {
 
-    private Integer contador;
     private String url;
-    private boolean valid=true;
+    private boolean valid;
+    private Integer contador;
+
+    public LinkDTO(String url){
+        this.url = url;
+        contador = 0;
+        valid = true;
+    }
 }
