@@ -32,8 +32,8 @@ public class LinkTrackerController {
             return new ResponseEntity<>(linkTrackerService.redirectLink(linkId), HttpStatus.SEE_OTHER);
     }
 
-    @GetMapping("/link/{linkId}/{pwd}")
-    public ResponseEntity<HttpHeaders> redirectLinkWithPwd(@PathVariable Integer linkId, @PathVariable String pwd) throws URISyntaxException, InvalidLinkException, InvalidPasswordException {
+    @GetMapping(value="/link/{linkId}", params={"pwd"})
+    public ResponseEntity<HttpHeaders> redirectLinkWithPwd(@PathVariable Integer linkId, @RequestParam("pwd") String pwd) throws URISyntaxException, InvalidLinkException, InvalidPasswordException {
         return new ResponseEntity<>(linkTrackerService.redirectLink(linkId, pwd), HttpStatus.SEE_OTHER);
     }
 
